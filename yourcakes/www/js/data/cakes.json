@@ -1,0 +1,36 @@
+[
+{
+	"id": 1,
+	"name": "Chocolate cake",
+	"comment": "A classic sponge cake made into a chocolate sponge cake. This is completely fail-safe. Use a good quality cocoa powder (not drinking chocolate) for best results!",
+	"imageUrl": "././img/cakePictures/chocolateCake.jpg",
+	"yumFacotr": 5
+},
+{
+	"id": 2,
+	"name": "Sponge cake",
+	"comment": "This cake is perfect for if you are going to cut a shape it, an example being the Fearless lion cake which I have already submitted as a recipe.",
+	"imageUrl": "././img/cakePictures/spongeCake.jpg",
+	"yumFacotr": 4
+},
+{
+	"id": 3,
+	"name": "Loaf cake",
+	"comment": "A beautifully moist lemon loaf. This lemon drizzle loaf is the queen of all lemon loaves; sticky and light.",
+	"imageUrl": "././img/cakePictures/loafCake.jpg",
+	"yumFacotr": 3
+},
+{
+	"id": 4,
+	"name": "Cheescake",
+	"comment": "This recipe is one of my own and I think it is nice, just hoped someone else will like it as well.",
+	"imageUrl": "././img/cakePictures/cheeseCake.jpg",
+	"yumFacotr": 5
+},
+{
+	"id": 5,
+	"name": "Banana Cake",
+	"comment": "The easiest banana cake to make, just right for using up those very ripe bananas in the fruit bowl! I make this one in a loaf tin then you can cut slices and butter them for an after school treat.",
+	"imageUrl": "././img/cakePictures/bananaCake.jpg",
+	"yumFacotr": 4
+}]
