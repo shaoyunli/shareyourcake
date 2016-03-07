@@ -1,5 +1,6 @@
 <ion-view view-title="Yummy Cakes">
   <ion-content>
+      <notifications-bar class="notifications"></notifications-bar>
       <div class="bar bar-header bar-calm">
           <h1 class="title">Yummy Cakes</h1>
       </div>
@@ -11,7 +12,7 @@
                   <a class="item item-thumbnail-left" href="#" ng-click="viewDetails(cake.id)">
                       <img alt="{{cake.name}}" src="{{cake.imageUrl}}" />
                       <h3>{{cake.name}}</h3>
-                      <rating ng-model="cake.yumFacotr" max="5" readonly="true"></rating>
+                      <rating ng-model="cake.yumFactor" max="5" readonly="true"></rating>
                   </a>
               </ion-item>
           </ion-list>

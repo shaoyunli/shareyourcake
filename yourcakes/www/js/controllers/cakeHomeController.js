@@ -2,12 +2,12 @@ var cakeHomeController = angular.module('cakeApp');
 
 cakeHomeController.controller('cakeHomeController',
 
-	function ($scope, $ionicModal, cakeSvc) {
+	function ($scope, $ionicModal, cakeSvc, notifications) {
     
     cakeSvc.getCakes().then(function (results) {
         $scope.cakes = results;
     }, function () {
-        alert('error');
+        notifications.showError('Error occurs when getting the data.');
     });
     
     // Cake Detail Modal
@@ -19,11 +19,11 @@ cakeHomeController.controller('cakeHomeController',
     });
     
     $scope.viewDetails = function (id) {
-        if (id != null) {            
-            cakeSvc.get(id).then(function (result) {
+        if (id != null) {
+            cakeSvc.get(id).then(function (result) {                
                 $scope.cake = result;
-            }, function () {
-                alert('error');
+            }, function () {                
+                notifications.showError('Error occurs when getting the data.');
             });            
 
             $scope.cakeDetailsModal.show();
@@ -44,7 +44,6 @@ cakeHomeController.controller('cakeHomeController',
 
     $scope.addCake = function (){
         var newCake = {
-            id: $scope.cakes.length + 1,
             name: "",
             comment: "",
             imageUrl: "",
@@ -60,13 +59,19 @@ cakeHomeController.controller('cakeHomeController',
     }
 
     $scope.save = function () {
-        cakeSvc.add($scope.newCake).then(function (cakes) {
-            $scope.cakes = cakes;
-            $scope.addCakeModal.hide();
+        cakeSvc.add($scope.newCake).then(function () {
+            cakeSvc.getCakes().then(function (results) {
+                $scope.cakes = results;
+                $scope.addCakeModal.hide();
+            }, function (payload) {                
+                notifications.showError('Error occurs when getting the data.');
+            })
         }, 
-        function () { 
-            alert("error");
-        })
+        function (payload) {
+            notifications.showError('Error occurs when saving the data.');
+        }, function(message) {
+                console.log(message);
+            }
+        )
     }
-}
-)
+})

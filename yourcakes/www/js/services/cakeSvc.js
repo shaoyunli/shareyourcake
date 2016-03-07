@@ -1,37 +1,29 @@
 
 angular.module('cakeApp')
 .factory('cakeSvc', function($http, $q) {
-	
+    
     return service = {
-        getCakes: function () {
-            
-            var deferred = $q.defer();            
 
-            $http.get('/js/data/cakes.json')
-            .success(function (data, status) {
+        getCakes: function() {
+            var deferred = $q.defer();
+        
+            $http.get('http://52.31.91.48:5000/api/cakes')
+                .success(function (data, status) {
                 deferred.resolve(data);
             })
-            .error(function (data, status, headers, config){
+                .error(function (data, status, headers, config) {
                 deferred.reject(data);
             })
-
+        
             return deferred.promise;
         },
 
         get: function (id, callback) {
             var deferred = $q.defer();
 
-            $http.get('/js/data/cakes.json')
-            .success(function (data, status) {
-                var cake = null;
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].id == id) {
-                        cake = data[i];
-                        break;
-                    }
-                }
-
-                deferred.resolve(cake);
+            $http.get('http://52.31.91.48:5000/api/cakes/' + id)
+            .success(function (data, status) {  
+                deferred.resolve(data);
             })
             .error(function (data, status, headers, config) {
                 deferred.reject(data);
@@ -41,18 +33,24 @@ angular.module('cakeApp')
         },
 
         add: function (cake, callback) {
-            var deferred = $q.defer();
-
-            $http.get('/js/data/cakes.json')
-            .success(function (data, status) {
-                data.push(cake);                
-                deferred.resolve(data);
-            })
-            .error(function (data, status, headers, config) {
-                deferred.reject(data);
-            })
+            //var deferred = $q.defer();
             
-            return deferred.promise;
+            return $http({
+                url: 'http://52.31.91.48:5000/api/cakes/',
+                method: 'POST',                
+                data: cake,
+                headers: { 'Content-Type': 'application/json' } 
+            });
+
+            //$http.post('http://52.31.91.48:5000/api/cakes/', cake)
+            //.success(function (data, status) {                
+            //        deferred.resolve(data);
+            //})
+            //.error(function (data, status, headers, config) {
+            //    deferred.reject(data);
+            //})
+            
+            //return deferred.promise;
         }
 
     };

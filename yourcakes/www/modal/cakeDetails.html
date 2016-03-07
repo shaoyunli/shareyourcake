@@ -1,0 +1,23 @@
+﻿<ion-modal-view style="border: 1px solid darkgray; border-radius: 3px; ">    
+    <ion-content> 
+        <div class="bar bar-header bar-calm">
+            <h1 class="title">{{cake.name}}</h1>
+            <a class="button button-small button-icon icon ion-close" ng-click="closeDetailModal()"></a>
+        </div>       
+        <div class="row has-header" style="padding-top: 50px">
+            <div class="col-35" style="padding-left: 10px">
+                <img alt="{{cake.name}}" src="{{cake.imageUrl}}" />
+            </div>
+            <div class="col-55" style="padding: 10px;">
+                <div class="row">
+                    <rating ng-model="cake.yumFacotr" max="5" readonly="true"></rating>
+                </div>
+                <div class="row" style="padding-top: 10px; padding-left: 0; padding-right: 10px;">
+                    <div class="col">
+                        <p style="word-wrap: break-word"><b>Comment:</b> {{cake.comment}}</p>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </ion-content>
+</ion-modal-view>

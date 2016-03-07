@@ -7,6 +7,7 @@
   "dependencies": {
     "requirejs": "^2.1.22",
     "angular-route": "^1.5.0",
-    "angular-resource": "^1.5.0"
+    "angular-resource": "^1.5.0",
+    "ng-notifications-bar": "^0.0.16"
   }
 }

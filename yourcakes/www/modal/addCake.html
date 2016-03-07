@@ -1,0 +1,33 @@
+﻿<ion-modal-view style="border: 1px solid darkgray; border-radius: 3px; ">
+    <ion-content> 
+        <div class="bar bar-header bar-calm">
+            <h1 class="title">Add your cake</h1>
+            <a class="button button-small button-icon icon ion-close" ng-click="closeAddCakeModal()"></a>
+            <a class="button button-small button-icon icon ion-checkmark" ng-click="save()"></a>
+        </div>     
+        <div class="list has-header">
+            <label class="item item-input">
+                <input type="text" placeholder="Name" ng-model="newCake.name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Comment" ng-model="newCake.comment">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Image URL" ng-model="newCake.imageUrl">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Yum Factor
+                </div>
+                <select ng-model="newCake.yumFactor">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label>
+</div>
+        
+    </ion-content>
+</ion-modal-view>
